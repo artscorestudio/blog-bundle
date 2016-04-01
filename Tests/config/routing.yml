@@ -1,0 +1,2 @@
+asf_blog:
+    resource: "@ASFBlogBundle/Resources/config/routing/routing.yml"

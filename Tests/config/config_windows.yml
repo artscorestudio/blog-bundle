@@ -1,0 +1,9 @@
+imports:
+    - { resource: config.yml }
+    
+# Assetic Configuration
+assetic:
+    filters:
+        less:
+            node: "C:\\Program Files\\nodejs\\node.exe"
+            node_paths: ["C:\\Users\\claverie.n\\AppData\\Roaming\\npm\\node_modules"]

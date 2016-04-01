@@ -1,0 +1,9 @@
+imports:
+    - { resource: config.yml }
+    
+# Assetic Configuration
+assetic:
+    filters:
+        less:
+            node: "/usr/local/bin/node"
+            node_paths: ["/usr/local/lib/node_modules/"]
