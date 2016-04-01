@@ -1,5 +1,5 @@
 {
-	"name" : "artscorestudio/website-bundle",
+	"name" : "artscorestudio/blog-bundle",
 	"license" : "MIT",
 	"type" : "library",
 	"description" : "Blog Bundle is a Symfony 2/3 bundle for create and manage blog features in your Symfony 2/3 application. This package is a part of Artscore Studio Framework.",
