@@ -48,6 +48,8 @@ class ASFBlogExtension extends Extension implements PrependExtensionInterface
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
+        $this->mapsParameters($container, $this->getAlias(), $config);
+        
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services/services.xml');
     }
