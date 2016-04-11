@@ -9,7 +9,7 @@
  */
 namespace ASF\BlogBundle\Entity\Manager;
 
-use ASF\CoreBundle\Entity\Manager\ASFEntityManager;
+use ASF\CoreBundle\Utils\Manager\ASFEntityManager;
 
 /**
  * Generic Entity Manager for this bundle
