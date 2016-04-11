@@ -1,0 +1,25 @@
+{% extends 'ASFBlogBundle::backend_layout.html.twig' %}
+
+{% trans_default_domain 'asf_blog' %}
+
+{% block title %}{{ 'Blog category list'|trans }}{% endblock %}
+
+{% block asf_website_content %}
+
+	{% block page_title %}{{ 'Blog category list'|trans }}{% endblock %}
+	
+	{% block breadcrumbs_tree %}
+	 > <a href="{{ path('asf_blog_category_list') }}" title="{{ 'Blog category list'|trans }}">{{ 'Blog category list'|trans }}</a>
+	{% endblock %}
+	
+	{% block asf_content_cmd %}
+	<a class="btn btn-default" href="{{ path('asf_blog_category_add') }}" title="{{ 'Add new category'|trans }}">{{ 'Add new category'|trans }}</a>
+	{% endblock asf_content_cmd %}
+	
+	<div class="row">
+		<div class="col-xs-12">
+			{{ grid(grid) }}
+		</div>
+	</div>
+	
+{% endblock %}

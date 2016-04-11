@@ -1,0 +1,21 @@
+# Backend homepage
+asf_blog_backend_homepage:
+    path: /blog
+    defaults: { _controller: "ASFBlogBundle:Admin:index" }
+
+# Blog Category
+asf_blog_category_list:
+    path: /blog/config/list
+    defaults: { _controller: "ASFBlogBundle:Category:list" }
+    
+asf_blog_category_edit:
+    path: /blog/config/edit/{id}
+    defaults: { _controller: "ASFBlogBundle:Category:edit" }
+    
+asf_blog_category_add:
+    path: /blog/config/add
+    defaults: { _controller: "ASFBlogBundle:Category:edit" }
+    
+asf_blog_category_delete:
+    path: /blog/config/delete/{id}
+    defaults: { _controller: "ASFBlogBundle:Category:delete" }

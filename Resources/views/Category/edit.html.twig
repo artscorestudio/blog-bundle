@@ -1,0 +1,23 @@
+{% extends 'ASFBlogBundle::backend_layout.html.twig' %}
+
+{% block title %}{{ category.getName() }}{% endblock %}
+
+{% trans_default_domain 'asf_blog' %}
+
+{% block asf_website_content %}
+
+{% block breadcrumbs_tree %}
+ > <a href="{{ path('asf_blog_category_list') }}" title="{{ 'Blog category list'|trans }}">{{ 'Blog category list'|trans }}</a>
+{% if category.getId() is not null %}
+ > <a href="{{ path('asf_blog_category_edit', {id: category.getId()}) }}" title="{{ category.getName() }}">{{ category.getName() }}</a>
+{% else %}
+ > <a href="{{ path('asf_blog_category_add') }}" title="{{ category.getName() }}">{{ category.getName() }}</a>
+{% endif %}
+{% endblock %}
+
+<div class="container-fluid">
+	<div class="row">
+	{{ form(form) }}
+	</div>
+</div>
+{% endblock %}
