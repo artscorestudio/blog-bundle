@@ -27,6 +27,54 @@ class Configuration implements ConfigurationInterface
     	$treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('asf_blog');
 
+        $rootNode
+	        ->children()
+	        	->scalarNode('form_theme')
+	        		->defaultValue('ASFBlogBundle:Form:fields.html.twig')
+	        	->end()
+	        	->append($this->addCategoryParameterNode())
+	        ->end();
+        
         return $treeBuilder;
+    }
+    
+    /**
+     * Add Blog Category Entity Configuration
+     */
+    protected function addCategoryParameterNode()
+    {
+    	$builder = new TreeBuilder();
+    	$node = $builder->root('category');
+    
+    	$node
+	    	->treatTrueLike(array('form' => array(
+	    		'type' => "ASF\BlogBundle\Form\Type\CategoryType",
+	    		'name' => 'blog_category_type'
+	    	)))
+	    	->treatFalseLike(array('form' => array(
+	    		'type' => "ASF\BlogBundle\Form\Type\CategoryType",
+	    		'name' => 'blog_category_type'
+	    	)))
+	    	->addDefaultsIfNotSet()
+	    	->children()
+		    	->arrayNode('form')
+			    	->addDefaultsIfNotSet()
+			    	->children()
+				    	->scalarNode('type')
+				    		->defaultValue('ASF\BlogBundle\Form\Type\CategoryType')
+				    	->end()
+				    	->scalarNode('name')
+				    		->defaultValue('blog_category_type')
+				    	->end()
+				    	->arrayNode('validation_groups')
+				    		->prototype('scalar')->end()
+				    		->defaultValue(array("Default"))
+				    	->end()
+				    ->end()
+		    	->end()
+	    	->end()
+    	;
+    
+    	return $node;
     }
 }
