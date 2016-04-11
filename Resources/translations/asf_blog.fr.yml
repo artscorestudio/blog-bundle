@@ -3,6 +3,12 @@ Blog Manager: Gestionnaire de blog
 Blog Configuration: Configuration du blog
 Updated successfully: Mise à jour réussie
 Created successfully: Créé(e) avec succès
+State: Etat
+Enabled: Activé(e)
+Disabled: désactivé(e)
+enabled: activé(e)
+disabled: désactivé(e)
+Save: Enregistrer
 
 # Category
 Blog category list: Liste des catégories de blog
@@ -13,3 +19,6 @@ New blog category: Nouvelle catégorie
 new-blog-category: nouvelle-categorie
 An error occurs when generating or getting the category: Une erreur est survenue lors de la génération ou de la récupération de la catégorie
 'The blog category "%name%" successfully deleted.': 'La catégorie "%name%" a bien été supprimée.'
+Add new category: Ajouter une catégorie
+Choose a parent: Choisir une catégorie parent
+Category order: Position

@@ -18,7 +18,6 @@ use Doctrine\ORM\QueryBuilder;
 
 use APY\DataGridBundle\Grid\Action\RowAction;
 use APY\DataGridBundle\Grid\Source\Entity;
-use ASF\BlogBundle\Form\Handler\CategoryFormHandler;
 
 /**
  * Blog Category Controller
@@ -40,7 +39,7 @@ class CategoryController extends Controller
 			throw new AccessDeniedException();
 	
 		// Set Datagrid source
-		$source = new Entity($this->get('asf_blog.cateogry.manager')->getClassName());
+		$source = new Entity($this->get('asf_blog.category.manager')->getClassName());
 		$tableAlias = $source->getTableAlias();
 		$source->manipulateQuery(function($query) use ($tableAlias){
 			$query instanceof QueryBuilder;
@@ -108,15 +107,15 @@ class CategoryController extends Controller
 			$success_message = $this->get('translator')->trans('Created successfully', array(), 'asf_blog');
 		}
 	
-		if ( is_null($config) )
+		if ( is_null($category) )
 			throw new \Exception($this->get('translator')->trans('An error occurs when generating or getting the category', array(), 'asf_website'));
 
 		$form = $formFactory->createForm();
-		$form->setData($config);
+		$form->setData($category);
 		
-		$formHandler = new CategoryFormHandler($form, $request, $this->container);
+		$form->handleRequest($request);
 		
-		if ( true === $formHandler->process() ) {
+		if ( $form->isSubmitted() && $form->isValid() ) {
 			try {
 				if ( is_null($category->getId()) ) {
 					$categoryManager->getEntityManager()->persist($category);

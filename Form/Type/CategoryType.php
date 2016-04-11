@@ -16,9 +16,9 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use ASF\BlogBundle\Entity\Manager\ASFBlogEntityManagerInterface;
 
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use ASF\BlogBundle\Model\Category\CategoryModel;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 
 /**
  * Blog Category Form
@@ -58,7 +58,7 @@ class CategoryType extends AbstractType
 			'attr' => array('class' => 'category-slug')
 		))
 		->add('isEnabled', ChoiceType::class, array(
-			'label' => 'Enabled',
+			'label' => 'State',
 			'choices' => array(
 				'Enabled' => true,
 				'disabled' => false
