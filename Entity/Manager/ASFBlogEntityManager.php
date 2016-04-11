@@ -17,4 +17,4 @@ use ASF\CoreBundle\Entity\Manager\ASFEntityManager;
  * @author Nicolas Claverie <info@artscore-studio.fr>
  *
  */
-class ASFBlogEntityManager extends ASFEntityManager implements ASFWebsiteEntityManagerInterface {}
+class ASFBlogEntityManager extends ASFEntityManager implements ASFBlogEntityManagerInterface {}
