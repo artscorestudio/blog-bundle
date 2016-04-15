@@ -46,9 +46,18 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * @covers ASF\BlogBundle\DependencyInjection\Configuration::addCategoryParameterNode
 	 */
-	public function testConfigLoadFormName()
+	public function testConfigLoadCategoryFormName()
 	{
-		$this->assertEquals('ASF\BlmogBundle\Form\Type\CategoryType', $this->defaultConfig['category']['form']['type']);
+		$this->assertEquals('ASF\BlogBundle\Form\Type\CategoryType', $this->defaultConfig['category']['form']['type']);
 		$this->assertEquals('blog_category_type', $this->defaultConfig['category']['form']['name']);
+	}
+	
+	/**
+	 * @covers ASF\BlogBundle\DependencyInjection\Configuration::addTagParameterNode
+	 */
+	public function testConfigLoadTagFormName()
+	{
+		$this->assertEquals('ASF\BlogBundle\Form\Type\TagType', $this->defaultConfig['tag']['form']['type']);
+		$this->assertEquals('blog_tag_type', $this->defaultConfig['tag']['form']['name']);
 	}
 }

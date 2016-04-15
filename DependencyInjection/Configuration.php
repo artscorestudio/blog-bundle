@@ -33,6 +33,7 @@ class Configuration implements ConfigurationInterface
 	        		->defaultValue('ASFBlogBundle:Form:fields.html.twig')
 	        	->end()
 	        	->append($this->addCategoryParameterNode())
+	        	->append($this->addTagParameterNode())
 	        ->end();
         
         return $treeBuilder;
@@ -71,6 +72,46 @@ class Configuration implements ConfigurationInterface
 				    		->defaultValue(array("Default"))
 				    	->end()
 				    ->end()
+		    	->end()
+	    	->end()
+    	;
+    
+    	return $node;
+    }
+    
+    /**
+     * Add Blog Tag Entity Configuration
+     */
+    protected function addTagParameterNode()
+    {
+    	$builder = new TreeBuilder();
+    	$node = $builder->root('tag');
+    
+    	$node
+	    	->treatTrueLike(array('form' => array(
+	    		'type' => "ASF\BlogBundle\Form\Type\TagType",
+	    		'name' => 'blog_tag_type'
+	    	)))
+	    	->treatFalseLike(array('form' => array(
+	    		'type' => "ASF\BlogBundle\Form\Type\TagType",
+	    		'name' => 'blog_tag_type'
+	    	)))
+	    	->addDefaultsIfNotSet()
+	    	->children()
+		    	->arrayNode('form')
+			    	->addDefaultsIfNotSet()
+			    	->children()
+				    	->scalarNode('type')
+				    		->defaultValue('ASF\BlogBundle\Form\Type\TagType')
+				    	->end()
+				    	->scalarNode('name')
+				    		->defaultValue('blog_tag_type')
+				    	->end()
+				    	->arrayNode('validation_groups')
+				    		->prototype('scalar')->end()
+				    		->defaultValue(array("Default"))
+				    	->end()
+			    	->end()
 		    	->end()
 	    	->end()
     	;
