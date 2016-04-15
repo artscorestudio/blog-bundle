@@ -1,0 +1,9 @@
+{% extends "ASFWebsiteBundle::layout.html.twig" %}
+
+{% block heading %}
+<div class="jumbotron">
+	<h1>{% block heading_title %}Default Blog template{% endblock %}</h1>
+	<p class="lead">{% block heading_lead %}This template is a default blog template based on Twitter Bootstrap and jQuery{% endblock %}</p>
+	{% block heading_action_btn %}{% endblock %}
+</div>
+{% endblock %}
