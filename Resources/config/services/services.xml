@@ -16,6 +16,7 @@
 		<!-- Forms -->
 		<parameter key="asf_blog.form.type.category.class">ASF\BlogBundle\Form\Type\CategoryType</parameter>
 		<parameter key="asf_blog.form.type.tag.class">ASF\BlogBundle\Form\Type\TagType</parameter>
+		<parameter key="asf_blog.form.type.tag_collection.class">ASF\BlogBundle\Form\Type\TagCollectionType</parameter>
 		
 	</parameters>
 	 
@@ -53,6 +54,11 @@
 		<service id="asf_blog.form.type.tag" class="%asf_blog.form.type.tag.class%">
         	<argument type="service" id="asf_blog.tag.manager" />
 			<tag name="form.type" alias="blog_tag_type" />
+		</service>
+
+		<service id="asf_blog.form.type.tag_collection" class="%asf_blog.form.type.tag_collection.class%">
+        	<argument type="service" id="asf_blog.tag.manager" />
+			<tag name="form.type" alias="blog_tag_collection_type" />
 		</service>
 		
 	</services>
