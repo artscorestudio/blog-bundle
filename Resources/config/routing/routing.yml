@@ -1,0 +1,8 @@
+# Backend
+asf_blog_backend:
+    prefix: /admin
+    resource: "@ASFBlogBundle/Resources/config/routing/backend.yml"
+       
+# Frontend
+asf_blog_frontend:
+    resource: "@ASFBlogBundle/Resources/config/routing/frontend.yml"

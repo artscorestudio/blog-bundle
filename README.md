@@ -39,7 +39,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ## About
 
-Artscore Studio Website Bundle is an [Artscore Studio](http://www.artscore-studio.fr) initiative.
+Artscore Studio Blog Bundle is an [Artscore Studio](http://www.artscore-studio.fr) initiative.
 
 ## Reporting an issue or a feature request
 

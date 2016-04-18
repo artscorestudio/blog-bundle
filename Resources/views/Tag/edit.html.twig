@@ -1,0 +1,23 @@
+{% extends 'ASFBlogBundle::backend_layout.html.twig' %}
+
+{% block title %}{{ tag.getName() }}{% endblock %}
+
+{% trans_default_domain 'asf_blog' %}
+
+{% block asf_blog_content %}
+
+{% block breadcrumbs_tree %}
+ > <a href="{{ path('asf_blog_tag_list') }}" title="{{ 'Tags list'|trans }}">{{ 'Tags list'|trans }}</a>
+{% if tag.getId() is not null %}
+ > <a href="{{ path('asf_blog_tag_edit', {id: tag.getId()}) }}" title="{{ tag.getName() }}">{{ tag.getName() }}</a>
+{% else %}
+ > <a href="{{ path('asf_blog_tag_add') }}" title="{{ tag.getName() }}">{{ tag.getName() }}</a>
+{% endif %}
+{% endblock %}
+
+<div class="container-fluid">
+	<div class="row">
+	{{ form(form) }}
+	</div>
+</div>
+{% endblock %}

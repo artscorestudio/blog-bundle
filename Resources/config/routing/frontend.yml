@@ -1,0 +1,9 @@
+asf_blog_public_homepage:
+    path: /
+    defaults: { _controller: "ASFBlogBundle:Public:index" }
+     
+asf_blog_public_route:
+    path: /{path}
+    defaults: { _controller: "ASFBlogBundle:Public:post" }
+    requirements:
+        path: "^(?!admin|login|js|css|fonts).+"

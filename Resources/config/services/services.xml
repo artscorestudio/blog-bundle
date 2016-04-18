@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+	
+	<parameters>
+		<!-- Generic Entity Manager -->
+    	<parameter key="asf_blog.entity.manager.class">ASF\BlogBundle\Entity\Manager\ASFBlogEntityManager</parameter>
+		
+		<parameter key="asf_blog.category.entity.class">ASF\BlogBundle\Entity\Category</parameter>
+		<parameter key="asf_blog.tag.entity.class">ASF\BlogBundle\Entity\Tag</parameter>
+		
+		<!-- Form Factory -->
+		<parameter key="asf_blog.form.factory.class">ASF\BlogBundle\Form\Factory\FormFactory</parameter>
+		
+		<!-- Forms -->
+		<parameter key="asf_blog.form.type.category.class">ASF\BlogBundle\Form\Type\CategoryType</parameter>
+		<parameter key="asf_blog.form.type.tag.class">ASF\BlogBundle\Form\Type\TagType</parameter>
+		<parameter key="asf_blog.form.type.tag_collection.class">ASF\BlogBundle\Form\Type\TagCollectionType</parameter>
+		
+	</parameters>
+	 
+	<services>
+        
+        <!-- Blog Category Entity Manager -->
+        <service id="asf_blog.category.manager" class="%asf_blog.entity.manager.class%">
+            <tag name="asf_core.manager" entity="%asf_blog.category.entity.class%" />
+        </service>
+        
+        <!-- Blog Tag Entity Manager -->
+        <service id="asf_blog.tag.manager" class="%asf_blog.entity.manager.class%">
+            <tag name="asf_core.manager" entity="%asf_blog.tag.entity.class%" />
+        </service>
+        
+        <!-- Blog Category Form -->
+		<service id="asf_blog.form.factory.category" class="%asf_blog.form.factory.class%">
+            <argument type="service" id="form.factory" />
+            <argument>%asf_blog.category.form.name%</argument>
+            <argument>%asf_blog.category.form.type%</argument>
+        </service>
+        
+		<service id="asf_blog.form.type.category" class="%asf_blog.form.type.category.class%">
+        	<argument type="service" id="asf_blog.category.manager" />
+			<tag name="form.type" alias="blog_category_type" />
+		</service>
+		
+		<!-- Blog Tag Form -->
+		<service id="asf_blog.form.factory.tag" class="%asf_blog.form.factory.class%">
+            <argument type="service" id="form.factory" />
+            <argument>%asf_blog.tag.form.name%</argument>
+            <argument>%asf_blog.tag.form.type%</argument>
+        </service>
+        
+		<service id="asf_blog.form.type.tag" class="%asf_blog.form.type.tag.class%">
+        	<argument type="service" id="asf_blog.tag.manager" />
+			<tag name="form.type" alias="blog_tag_type" />
+		</service>
+
+		<service id="asf_blog.form.type.tag_collection" class="%asf_blog.form.type.tag_collection.class%">
+        	<argument type="service" id="asf_blog.tag.manager" />
+			<tag name="form.type" alias="blog_tag_collection_type" />
+		</service>
+		
+	</services>
+	
+</container>

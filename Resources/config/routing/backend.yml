@@ -1,0 +1,38 @@
+# Backend homepage
+asf_blog_backend_homepage:
+    path: /blog
+    defaults: { _controller: "ASFBlogBundle:Admin:index" }
+
+# Blog Category
+asf_blog_category_list:
+    path: /blog/category/list
+    defaults: { _controller: "ASFBlogBundle:Category:list" }
+    
+asf_blog_category_edit:
+    path: /blog/category/edit/{id}
+    defaults: { _controller: "ASFBlogBundle:Category:edit" }
+    
+asf_blog_category_add:
+    path: /blog/category/add
+    defaults: { _controller: "ASFBlogBundle:Category:edit" }
+    
+asf_blog_category_delete:
+    path: /blog/category/delete/{id}
+    defaults: { _controller: "ASFBlogBundle:Category:delete" }
+    
+# Blog Post Tag
+asf_blog_tag_list:
+    path: /blog/tag/list
+    defaults: { _controller: "ASFBlogBundle:Tag:list" }
+    
+asf_blog_tag_edit:
+    path: /blog/tag/edit/{id}
+    defaults: { _controller: "ASFBlogBundle:Tag:edit" }
+    
+asf_blog_tag_add:
+    path: /blog/tag/add
+    defaults: { _controller: "ASFBlogBundle:Tag:edit" }
+    
+asf_blog_tag_delete:
+    path: /blog/tag/delete/{id}
+    defaults: { _controller: "ASFBlogBundle:Tag:delete" }

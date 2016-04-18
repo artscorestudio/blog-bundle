@@ -19,13 +19,15 @@
         "symfony/browser-kit": "~2.8|~3.0",
         "symfony/css-selector": "~2.8|~3.0",
         "symfony/twig-bundle": "~2.3|~3.0",
-        "twig/twig": "~1.10",
         "symfony/assetic-bundle": "^2.7",
+        
+        "twig/twig": "~1.10",
+        "knplabs/knp-menu-bundle": "^2.0",
+        
         "artscorestudio/core-bundle": "^1.0@dev",
         "artscorestudio/layout-bundle": "^1.0@dev",
         "artscorestudio/document-bundle": "dev-master",
-        "artscorestudio/website-bundle": "dev-master",
-        "knplabs/knp-menu-bundle": "^2.0"
+        "artscorestudio/website-bundle": "dev-master"
 	},
 	"autoload" : {
 		"psr-4" : {

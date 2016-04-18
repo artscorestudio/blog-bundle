@@ -1,0 +1,36 @@
+# Commons
+Blog Manager: Gestionnaire de blog
+Blog Configuration: Configuration du blog
+Updated successfully: Mise à jour réussie
+Created successfully: Créé(e) avec succès
+State: Etat
+Enabled: Activé(e)
+Disabled: désactivé(e)
+enabled: activé(e)
+disabled: désactivé(e)
+Save: Enregistrer
+
+# Category
+Blog category list: Liste des catégories de blog
+Blog category name: Nom
+Do you want to delete this category?: Êtes-vous sûr de vouloir supprimer cette catégorie ?
+No blog category was found.: Pas de catégories.
+New blog category: Nouvelle catégorie
+new-blog-category: nouvelle-categorie
+An error occurs when generating or getting the category: Une erreur est survenue lors de la génération ou de la récupération de la catégorie
+'The blog category "%name%" successfully deleted.': 'La catégorie "%name%" a bien été supprimée.'
+Add new category: Ajouter une catégorie
+Choose a parent: Choisir une catégorie parent
+Category order: Position
+
+# Category
+Tags list: Liste des catégories de blog
+Tag name: Nom
+Do you want to delete this tag?: Êtes-vous sûr de vouloir supprimer ce tag ?
+No tag was found.: Pas de tags.
+New tag: Nouveau tag
+An error occurs when generating or getting the tag: Une erreur est survenue lors de la génération ou de la récupération du tag
+'The tag "%name%" successfully deleted.': 'Le tag "%name%" a bien été supprimé.'
+Add new tag: Ajouter un tag
+Blog category: Catégorie
+Choose a blog category: Choisir une catégorie
