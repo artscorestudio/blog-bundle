@@ -44,7 +44,13 @@ class TagArrayToTagStringTransformer implements DataTransformerInterface
         if ($array === null) {
         	return '';
         }
-        return implode(', ', $array->toArray());
+        
+        $return = array();
+        foreach($array as $tag) {
+        	$return[] = $tag->getName();
+        }
+        
+        return implode(', ', $return);
     }
 
     /**
@@ -56,10 +62,12 @@ class TagArrayToTagStringTransformer implements DataTransformerInterface
     	$array = explode(',', $string);
     	$collection = new ArrayCollection();
     	foreach($array as $name) {
-    		$tag = $this->tagManager->getRepository()->findOneBy(array('name' => $name));
-    		if ( $tag !== null ) {
-    			$collection->add($tag);
+    		$tag = $this->tagManager->getRepository()->findOneBy(array('name' => trim($name)));
+    		if ( $tag === null ) {
+    			$tag = $this->tagManager->createInstance();
+    			$tag->setName(trim($name));
     		}
+    		$collection->add($tag);
     	}
         return $collection;
     }

@@ -15,7 +15,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 use ASF\BlogBundle\Entity\Manager\ASFBlogEntityManagerInterface;
 
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use ASF\BlogBundle\Form\DataTransformer\TagArrayToTagStringTransformer;
 
 /**
@@ -38,7 +38,7 @@ class TagCollectionType extends AbstractType
     {
         $this->tagManager = $tagManager;
     }
-    
+
 	/**
 	 * {@inheritDoc}
 	 * @see \Symfony\Component\Form\AbstractType::buildForm()
@@ -55,6 +55,9 @@ class TagCollectionType extends AbstractType
 	public function configureOptions(OptionsResolver $resolver)
 	{
 		$resolver->setDefaults(array(
+			'entry_type' => TagType::class,
+			'allow_add' => true,
+			'allow_delete' => true,
 			'translation_domain' => 'asf_blog',
 			'attr' => array('class' => 'tags-input-field')
 		));
@@ -75,6 +78,6 @@ class TagCollectionType extends AbstractType
 	 */
 	public function getParent()
 	{
-		return TextType::class;
+		return CollectionType::class;
 	}
 }
