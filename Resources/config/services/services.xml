@@ -5,7 +5,7 @@
 	
 	<parameters>
 		<!-- Generic Entity Manager -->
-    	<parameter key="asf_blog.entity.manager.class">ASF\BlogBundle\Entity\Manager\ASFBlogEntityManager</parameter>
+    	<parameter key="asf_blog.entity.manager.class">ASF\BlogBundle\Utils\Manager\DefaultManager</parameter>
 		
 		<parameter key="asf_blog.category.entity.class">ASF\BlogBundle\Entity\Category</parameter>
 		<parameter key="asf_blog.tag.entity.class">ASF\BlogBundle\Entity\Tag</parameter>

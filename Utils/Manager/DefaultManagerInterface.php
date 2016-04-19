@@ -7,15 +7,17 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace ASF\BlogBundle\Entity\Manager;
+namespace ASF\BlogBundle\Utils\Manager;
+
+use ASF\CoreBundle\Utils\Manager\ASFManagerInterface;
 
 /**
- * Blog Manager Interface
+ * Generic Manager Interface for this bundle
  * 
  * @author Nicolas Claverie <info@artscore-studio.fr>
  *
  */
-interface ASFBlogEntityManagerInterface
+interface DefaultManagerInterface extends ASFManagerInterface
 {
     /**
      * Return the entity class name

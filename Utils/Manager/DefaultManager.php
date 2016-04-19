@@ -7,14 +7,14 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace ASF\BlogBundle\Entity\Manager;
+namespace ASF\BlogBundle\Utils\Manager;
 
-use ASF\CoreBundle\Utils\Manager\ASFEntityManager;
+use ASF\CoreBundle\Utils\Manager\ASFManager;
 
 /**
- * Generic Entity Manager for this bundle
+ * Generic Manager for this bundle
  * 
  * @author Nicolas Claverie <info@artscore-studio.fr>
  *
  */
-class ASFBlogEntityManager extends ASFEntityManager implements ASFBlogEntityManagerInterface {}
+class DefaultManager extends ASFManager implements DefaultManagerInterface {}

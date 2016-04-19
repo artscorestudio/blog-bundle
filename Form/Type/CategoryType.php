@@ -13,7 +13,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-use ASF\BlogBundle\Entity\Manager\ASFBlogEntityManagerInterface;
+use ASF\BlogBundle\Utils\Manager\DefaultManagerInterface;
 
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -29,14 +29,14 @@ use Symfony\Component\Form\Extension\Core\Type\NumberType;
 class CategoryType extends AbstractType
 {
     /**
-     * @var ASFBlogEntityManagerInterface
+     * @var DefaultManagerInterface
      */
     protected $categoryManager;
     
     /**
-     * @param ASFBlogEntityManagerInterface $categoryManager
+     * @param DefaultManagerInterface $categoryManager
      */
-    public function __construct(ASFBlogEntityManagerInterface $categoryManager)
+    public function __construct(DefaultManagerInterface $categoryManager)
     {
         $this->categoryManager = $categoryManager;
     }

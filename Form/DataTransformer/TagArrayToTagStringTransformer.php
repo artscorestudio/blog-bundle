@@ -10,9 +10,8 @@
 namespace ASF\BlogBundle\Form\DataTransformer;
 
 use Symfony\Component\Form\DataTransformerInterface;
-use ASF\CoreBundle\Model\Manager\ASFEntityManagerInterface;
-use ASF\BlogBundle\Entity\Manager\ASFBlogEntityManagerInterface;
 use Doctrine\Common\Collections\ArrayCollection;
+use ASF\BlogBundle\Utils\Manager\DefaultManagerInterface;
 
 /**
  * Transform a tag array to a tag string
@@ -23,14 +22,14 @@ use Doctrine\Common\Collections\ArrayCollection;
 class TagArrayToTagStringTransformer implements DataTransformerInterface
 {
     /**
-     * @var ASFBlogEntityManagerInterface
+     * @var DefaultManagerInterface
      */
     protected $tagManager;
 
     /**
-     * @param ASFProductManagerInterface $brand_manager
+     * @param DefaultManagerInterface $tagManager
      */
-    public function __construct(ASFBlogEntityManagerInterface $tagManager)
+    public function __construct(DefaultManagerInterface $tagManager)
     {
         $this->tagManager = $tagManager;
     }
