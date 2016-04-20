@@ -3,7 +3,14 @@ asf_blog_public_homepage:
     defaults: { _controller: "ASFBlogBundle:Public:index" }
      
 asf_blog_public_route:
-    path: /{path}
-    defaults: { _controller: "ASFBlogBundle:Public:post" }
+    path: /{path}.{_format}
+    defaults: { _controller: "ASFBlogBundle:Public:post", _format: "html" }
     requirements:
         path: "^(?!admin|login|js|css|fonts).+"
+        _format: html
+        
+asf_blog_public_category_route:
+    path: /{path}
+    defaults: { _controller: "ASFBlogBundle:Public:category" }
+    requirements:
+        path: "^(?!admin|login|js|css|fonts).+"              

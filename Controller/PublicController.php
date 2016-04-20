@@ -31,27 +31,49 @@ class PublicController extends Controller
     }
     
     /**
-     * Blog post Controller
+     * Blog category Controller
      * 
      * @param string $path
      * @throws \Exception
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function postAction($path)
+    public function categoryAction($path)
     {
     	$path = str_replace('/blog', '', $path);
     	
     	$result = $this->get('asf_blog.category.manager')->getRepository()->findBySlug($path);
     	if ( count($result) == 0 ) {
-    		throw new NotFoundHttpException('Ooops ! Blog category not found.');
+    		throw new NotFoundHttpException('Ooops ! Blog category was not found.');
     	}
     	
     	$category = $result[0];
-    	$posts = $this->get('asf_document.post.manager')->getRepository()->findBy(array('category' => $category));
-    	
+    	$posts = $this->get('asf_document.post.manager')->getRepository()->findByCategory($category);
+
     	return $this->render('ASFBlogBundle:Public:category-list.html.twig', array(
     		'category' => $category,
     		'posts' => $posts
+    	));
+    }
+    
+    /**
+     * Blog post Controller
+     *
+     * @param string $path
+     * @throws \Exception
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function postAction($path, $_format)
+    {
+    	$path = str_replace(array('/blog', '.html'), '', $path);
+    	$result = $this->get('asf_document.post.manager')->getRepository()->findBySlug($path);
+    	if ( count($result) == 0 ) {
+    		throw new NotFoundHttpException('Ooops ! This post was not found.');
+    	}
+    	 
+    	$post = $result[0];
+    	 
+    	return $this->render('ASFBlogBundle:Public:post-view.html.twig', array(
+   			'post' => $post
     	));
     }
 }
