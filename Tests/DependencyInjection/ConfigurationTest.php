@@ -40,7 +40,7 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
      */
 	public function testDefaultConfiguration()
 	{
-		$this->assertCount(2, $this->defaultConfig);
+		$this->assertCount(3, $this->defaultConfig);
 	}
 	
 	/**
