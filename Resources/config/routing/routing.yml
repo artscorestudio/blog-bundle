@@ -5,4 +5,5 @@ asf_blog_backend:
        
 # Frontend
 asf_blog_frontend:
+    prefix: /blog
     resource: "@ASFBlogBundle/Resources/config/routing/frontend.yml"
