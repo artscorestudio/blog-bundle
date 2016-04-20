@@ -39,18 +39,19 @@ class PublicController extends Controller
      */
     public function postAction($path)
     {
-    	$parts = explode('/', $path);
+    	$path = str_replace('/blog', '', $path);
     	
-    	$result = $this->get('asf_document.post.manager')->getRepository()->findBySlug($path);
-    	
+    	$result = $this->get('asf_blog.category.manager')->getRepository()->findBySlug($path);
     	if ( count($result) == 0 ) {
-    		throw new NotFoundHttpException('Ooops ! Post not found.');
+    		throw new NotFoundHttpException('Ooops ! Blog category not found.');
     	}
     	
-    	$page = $result[0];
+    	$category = $result[0];
+    	$posts = $this->get('asf_document.post.manager')->getRepository()->findBy(array('category' => $category));
     	
-    	return $this->render('ASFBlogBundle:Public:post.html.twig', array(
-    		'post' => $post
+    	return $this->render('ASFBlogBundle:Public:category-list.html.twig', array(
+    		'category' => $category,
+    		'posts' => $posts
     	));
     }
 }

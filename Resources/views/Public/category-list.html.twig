@@ -1,0 +1,20 @@
+{% extends "ASFWebsiteBundle::layout.html.twig" %}
+
+{% block title %}{{ category.getName() }}{% endblock %}
+
+{% block body %}
+	{% if posts|length > 0 %}
+	
+		{% for post in posts %}
+			<div class="post" id="post-{{ post.getId() }}">
+				<h2>{{ post.getTitle() }}</h2>
+				<a href="{{ path('asf_blog_public_route', {path: post.getSlug()}) }}">Lire la suite</a>
+			</div>
+		{% endfor %}
+	
+	{% else %}
+		
+		<div class="alert alert-info">Pas d'articles pour le moment.</div>
+		
+	{% endif %}
+{% endblock %}
