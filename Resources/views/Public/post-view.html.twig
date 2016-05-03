@@ -1,7 +1,0 @@
-{% extends "ASFWebsiteBundle::layout.html.twig" %}
-
-{% block title %}{{ post.getTitle() }}{% endblock %}
-
-{% block body %}
-{{ post.getContent()|raw }}
-{% endblock %}
